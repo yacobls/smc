@@ -127,3 +127,130 @@
     
 })(jQuery);
 
+document.addEventListener("DOMContentLoaded", function() {
+    const zoomContainers = document.querySelectorAll(".zoom-container");
+
+    zoomContainers.forEach(container => {
+        const img = container.querySelector(".zoom");
+        const lens = document.createElement("div");
+        lens.setAttribute("class", "lens");
+        container.appendChild(lens);
+
+        lens.style.backgroundImage = `url(${img.src})`;
+        lens.style.backgroundSize = `${img.width * 2}px ${img.height * 2}px`;
+
+        container.addEventListener("mousemove", moveLens);
+        lens.addEventListener("mousemove", moveLens);
+        container.addEventListener("touchmove", moveLens);
+
+        function moveLens(e) {
+            let pos, x, y;
+            /* Prevent any other actions that may occur when moving over the image */
+            e.preventDefault();
+            /* Get the cursor's x and y positions: */
+            pos = getCursorPos(e);
+            /* Calculate the position of the lens: */
+            x = pos.x - (lens.offsetWidth / 2);
+            y = pos.y - (lens.offsetHeight / 2);
+            /* Prevent the lens from being positioned outside the image: */
+            if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+            if (x < 0) {x = 0;}
+            if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+            if (y < 0) {y = 0;}
+            /* Set the position of the lens: */
+            lens.style.left = x + "px";
+            lens.style.top = y + "px";
+            /* Display what the lens "sees": */
+            lens.style.backgroundPosition = `-${x * 2}px -${y * 2}px`;
+        }
+
+        function getCursorPos(e) {
+            let a, x = 0, y = 0;
+            e = e || window.event;
+            /* Get the x and y positions of the image: */
+            a = img.getBoundingClientRect();
+            /* Calculate the cursor's x and y coordinates, relative to the image: */
+            x = e.pageX - a.left;
+            y = e.pageY - a.top;
+            /* Consider any page scrolling: */
+            x = x - window.pageXOffset;
+            y = y - window.pageYOffset;
+            return {x: x, y: y};
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const zoomContainers = document.querySelectorAll(".zoom-container-2");
+
+    zoomContainers.forEach(container => {
+        const img = container.querySelector(".zoom-2");
+        const lens = document.createElement("div");
+        lens.setAttribute("class", "lens-2");
+        container.appendChild(lens);
+
+        lens.style.backgroundImage = `url(${img.src})`;
+        lens.style.backgroundSize = `${img.width * 2}px ${img.height * 2}px`;
+
+        container.addEventListener("mousemove", moveLens);
+        lens.addEventListener("mousemove", moveLens);
+        container.addEventListener("touchmove", moveLens);
+
+        function moveLens(e) {
+            let pos, x, y;
+            /* Prevent any other actions that may occur when moving over the image */
+            e.preventDefault();
+            /* Get the cursor's x and y positions: */
+            pos = getCursorPos(e);
+            /* Calculate the position of the lens: */
+            x = pos.x - (lens.offsetWidth / 2);
+            y = pos.y - (lens.offsetHeight / 2);
+            /* Prevent the lens from being positioned outside the image: */
+            if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+            if (x < 0) {x = 0;}
+            if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+            if (y < 0) {y = 0;}
+            /* Set the position of the lens: */
+            lens.style.left = x + "px";
+            lens.style.top = y + "px";
+            /* Display what the lens "sees": */
+            lens.style.backgroundPosition = `-${x * 2}px -${y * 2}px`;
+        }
+
+        function getCursorPos(e) {
+            let a, x = 0, y = 0;
+            e = e || window.event;
+            /* Get the x and y positions of the image: */
+            a = img.getBoundingClientRect();
+            /* Calculate the cursor's x and y coordinates, relative to the image: */
+            x = e.pageX - a.left;
+            y = e.pageY - a.top;
+            /* Consider any page scrolling: */
+            x = x - window.pageXOffset;
+            y = y - window.pageYOffset;
+            return {x: x, y: y};
+        }
+    });
+});
+
+document.addEventListener('contextmenu', function(event) {
+	event.preventDefault();
+  });
+
+  document.onkeydown = function(e) {
+	if(e.keyCode == 123) { // F12 key
+	  return false;
+	}
+	if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+	  return false;
+	}
+	if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+	  return false;
+	}
+	if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+	  return false;
+	}
+	if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+	  return false;
+	}
+  }
