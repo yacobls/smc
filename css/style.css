@@ -676,3 +676,293 @@ h6,
   font-size: 1.5em;
   color: #2b2e4a;
 }
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%; /* Lebar maksimum slider */
+}
+
+.slider {
+  position: relative; /* Menjadikan slider sebagai referensi posisi untuk dots */
+  display: flex; /* Mengatur container gambar menggunakan flexbox */
+  transition: transform 0.5s ease; /* Animasi pergeseran */
+}
+
+.slider img {
+  width: 100%; /* Gambar mengisi lebar slider */
+  flex: 0 0 auto; /* Tidak mengubah ukuran gambar */
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 10px; /* Jarak dots dari bawah */
+  left: 50%; /* Posisi horizontal dots di tengah */
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 1; /* Membuat dots tampil di atas gambar */
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #717171;
+}
+
+.slider-container-2 {
+  position: relative;
+  overflow: hidden;
+  width: 100%; /* Lebar maksimum slider */
+}
+
+.slider-2 {
+  position: relative; /* Menjadikan slider sebagai referensi posisi untuk dots */
+  display: flex; /* Mengatur container gambar menggunakan flexbox */
+  transition: transform 0.5s ease; /* Animasi pergeseran */
+}
+
+.slider-2 img {
+  width: 100%; /* Gambar mengisi lebar slider */
+  flex: 0 0 auto; /* Tidak mengubah ukuran gambar */
+}
+
+.slider-dots-2 {
+  position: absolute;
+  bottom: 10px; /* Jarak dots dari bawah */
+  left: 50%; /* Posisi horizontal dots di tengah */
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 1; /* Membuat dots tampil di atas gambar */
+}
+
+.dot-2 {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot-2.active {
+  background-color: #717171;
+}
+
+.slider-container-3 {
+  position: relative;
+  overflow: hidden;
+  width: 100%; /* Lebar maksimum slider */
+}
+
+.slider-3 {
+  position: relative; /* Menjadikan slider sebagai referensi posisi untuk dots */
+  display: flex; /* Mengatur container gambar menggunakan flexbox */
+  transition: transform 0.5s ease; /* Animasi pergeseran */
+}
+
+.slider-3 img {
+  width: 100%; /* Gambar mengisi lebar slider */
+  flex: 0 0 auto; /* Tidak mengubah ukuran gambar */
+}
+
+.slider-dots-3 {
+  position: absolute;
+  bottom: 10px; /* Jarak dots dari bawah */
+  left: 50%; /* Posisi horizontal dots di tengah */
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 1; /* Membuat dots tampil di atas gambar */
+}
+
+.dot-3 {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot-3.active {
+  background-color: #717171;
+}
+
+.slider-container-4 {
+  position: relative;
+  overflow: hidden;
+  width: 100%; /* Lebar maksimum slider */
+}
+
+.slider-4 {
+  position: relative; /* Menjadikan slider sebagai referensi posisi untuk dots */
+  display: flex; /* Mengatur container gambar menggunakan flexbox */
+  transition: transform 0.5s ease; /* Animasi pergeseran */
+}
+
+.slider-4 img {
+  width: 100%; /* Gambar mengisi lebar slider */
+  flex: 0 0 auto; /* Tidak mengubah ukuran gambar */
+}
+
+.slider-dots-4 {
+  position: absolute;
+  bottom: 10px; /* Jarak dots dari bawah */
+  left: 50%; /* Posisi horizontal dots di tengah */
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 1; /* Membuat dots tampil di atas gambar */
+}
+
+.dot-4 {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot-4.active {
+  background-color: #717171;
+}
+
+.slider-container-5 {
+  position: relative;
+  overflow: hidden;
+  width: 100%; /* Lebar maksimum slider */
+}
+
+.slider-5 {
+  position: relative; /* Menjadikan slider sebagai referensi posisi untuk dots */
+  display: flex; /* Mengatur container gambar menggunakan flexbox */
+  transition: transform 0.5s ease; /* Animasi pergeseran */
+}
+
+.slider-5 img {
+  width: 100%; /* Gambar mengisi lebar slider */
+  flex: 0 0 auto; /* Tidak mengubah ukuran gambar */
+}
+
+.slider-dots-5 {
+  position: absolute;
+  bottom: 10px; /* Jarak dots dari bawah */
+  left: 50%; /* Posisi horizontal dots di tengah */
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 1; /* Membuat dots tampil di atas gambar */
+}
+
+.dot-5 {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot-5.active {
+  background-color: #717171;
+}
+
+.slider-container-6 {
+  position: relative;
+  overflow: hidden;
+  width: 100%; /* Lebar maksimum slider */
+}
+
+.slider-6 {
+  position: relative; /* Menjadikan slider sebagai referensi posisi untuk dots */
+  display: flex; /* Mengatur container gambar menggunakan flexbox */
+  transition: transform 0.6s ease; /* Animasi pergeseran */
+}
+
+.slider-6 img {
+  width: 100%; /* Gambar mengisi lebar slider */
+  flex: 0 0 auto; /* Tidak mengubah ukuran gambar */
+}
+
+.slider-dots-6 {
+  position: absolute;
+  bottom: 10px; /* Jarak dots dari bawah */
+  left: 50%; /* Posisi horizontal dots di tengah */
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 1; /* Membuat dots tampil di atas gambar */
+}
+
+.dot-6 {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot-6.active {
+  background-color: #717171;
+}
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  color: black;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 1; /* Membuat tombol navigasi tampil di atas gambar */
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.slider-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.thumbnail-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  width: 100%;
+  max-width: 300px; /* Sesuaikan dengan lebar maksimum yang diinginkan */
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.thumbnail-info h4, .thumbnail-info h5, .thumbnail-info h6, .thumbnail-info p, .thumbnail-info .rating {
+  margin: 10px 0; /* Jarak antar elemen deskripsi */
+  color: #ffffff;
+}
+
+.slider-item:hover .thumbnail-info {
+  opacity: 1;
+}
+
