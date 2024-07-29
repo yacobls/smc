@@ -1,236 +1,252 @@
 (function ($) {
-    "use strict";
-    
-    // Dropdown on mouse hover
-    $(document).ready(function () {
-        function toggleNavbarMethod() {
-            if ($(window).width() > 992) {
-                $('.navbar .dropdown').on('mouseover', function () {
-                    $('.dropdown-toggle', this).trigger('click');
-                }).on('mouseout', function () {
-                    $('.dropdown-toggle', this).trigger('click').blur();
-                });
-            } else {
-                $('.navbar .dropdown').off('mouseover').off('mouseout');
-            }
-        }
-        toggleNavbarMethod();
-        $(window).resize(toggleNavbarMethod);
-    });
+  "use strict";
 
+  // Dropdown on mouse hover
+  $(document).ready(function () {
+    function toggleNavbarMethod() {
+      if ($(window).width() > 992) {
+        $(".navbar .dropdown")
+          .on("mouseover", function () {
+            $(".dropdown-toggle", this).trigger("click");
+          })
+          .on("mouseout", function () {
+            $(".dropdown-toggle", this).trigger("click").blur();
+          });
+      } else {
+        $(".navbar .dropdown").off("mouseover").off("mouseout");
+      }
+    }
+    toggleNavbarMethod();
+    $(window).resize(toggleNavbarMethod);
+  });
 
-    // Date and time picker
-    $('.date').datetimepicker({
-        format: 'L'
-    });
-    $('.time').datetimepicker({
-        format: 'LT'
-    });
-    
-    
-    // Back to top button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            $('.back-to-top').fadeIn('slow');
-        } else {
-            $('.back-to-top').fadeOut('slow');
-        }
-    });
-    $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
-        return false;
-    });
+  // Date and time picker
+  $(".date").datetimepicker({
+    format: "L",
+  });
+  $(".time").datetimepicker({
+    format: "LT",
+  });
 
+  // Back to top button
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      $(".back-to-top").fadeIn("slow");
+    } else {
+      $(".back-to-top").fadeOut("slow");
+    }
+  });
+  $(".back-to-top").click(function () {
+    $("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
+    return false;
+  });
 
-    // Team carousel
-    $(".team-carousel, .related-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        center: true,
-        margin: 30,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-        ],
-        responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:3
-            }
-        }
-    });
+  // Team carousel
+  $(".team-carousel, .related-carousel").owlCarousel({
+    autoplay: true,
+    smartSpeed: 1000,
+    center: true,
+    margin: 30,
+    dots: false,
+    loop: true,
+    nav: true,
+    navText: [
+      '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+      '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+    ],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      576: {
+        items: 1,
+      },
+      768: {
+        items: 2,
+      },
+      992: {
+        items: 3,
+      },
+    },
+  });
 
+  // Testimonials carousel
+  $(".testimonial-carousel").owlCarousel({
+    autoplay: true,
+    smartSpeed: 1500,
+    margin: 30,
+    dots: true,
+    loop: true,
+    center: true,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      576: {
+        items: 1,
+      },
+      768: {
+        items: 2,
+      },
+      992: {
+        items: 3,
+      },
+    },
+  });
 
-    // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1500,
-        margin: 30,
-        dots: true,
-        loop: true,
-        center: true,
-        responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:3
-            }
-        }
-    });
-
-
-    // Vendor carousel
-    $('.vendor-carousel').owlCarousel({
-        loop: true,
-        margin: 30,
-        dots: true,
-        loop: true,
-        center: true,
-        autoplay: true,
-        smartSpeed: 1000,
-        responsive: {
-            0:{
-                items:2
-            },
-            576:{
-                items:3
-            },
-            768:{
-                items:4
-            },
-            992:{
-                items:5
-            },
-            1200:{
-                items:6
-            }
-        }
-    });
-    
+  // Vendor carousel
+  $(".vendor-carousel").owlCarousel({
+    loop: true,
+    margin: 30,
+    dots: true,
+    loop: true,
+    center: true,
+    autoplay: true,
+    smartSpeed: 1000,
+    responsive: {
+      0: {
+        items: 2,
+      },
+      576: {
+        items: 3,
+      },
+      768: {
+        items: 4,
+      },
+      992: {
+        items: 5,
+      },
+      1200: {
+        items: 6,
+      },
+    },
+  });
 })(jQuery);
 
-document.addEventListener("DOMContentLoaded", function() {
-    const zoomContainers = document.querySelectorAll(".zoom-container");
+document.addEventListener("DOMContentLoaded", function () {
+  const zoomContainers = document.querySelectorAll(".zoom-container");
 
-    zoomContainers.forEach(container => {
-        const img = container.querySelector(".zoom");
-        const lens = document.createElement("div");
-        lens.setAttribute("class", "lens");
-        container.appendChild(lens);
+  zoomContainers.forEach((container) => {
+    const img = container.querySelector(".zoom");
+    const lens = document.createElement("div");
+    lens.setAttribute("class", "lens");
+    container.appendChild(lens);
 
-        lens.style.backgroundImage = `url(${img.src})`;
-        lens.style.backgroundSize = `${img.width * 2}px ${img.height * 2}px`;
+    lens.style.backgroundImage = `url(${img.src})`;
+    lens.style.backgroundSize = `${img.width * 2}px ${img.height * 2}px`;
 
-        container.addEventListener("mousemove", moveLens);
-        lens.addEventListener("mousemove", moveLens);
-        container.addEventListener("touchmove", moveLens);
+    container.addEventListener("mousemove", moveLens);
+    lens.addEventListener("mousemove", moveLens);
+    container.addEventListener("touchmove", moveLens);
 
-        function moveLens(e) {
-            let pos, x, y;
-            /* Prevent any other actions that may occur when moving over the image */
-            e.preventDefault();
-            /* Get the cursor's x and y positions: */
-            pos = getCursorPos(e);
-            /* Calculate the position of the lens: */
-            x = pos.x - (lens.offsetWidth / 2);
-            y = pos.y - (lens.offsetHeight / 2);
-            /* Prevent the lens from being positioned outside the image: */
-            if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
-            if (x < 0) {x = 0;}
-            if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
-            if (y < 0) {y = 0;}
-            /* Set the position of the lens: */
-            lens.style.left = x + "px";
-            lens.style.top = y + "px";
-            /* Display what the lens "sees": */
-            lens.style.backgroundPosition = `-${x * 2}px -${y * 2}px`;
-        }
+    function moveLens(e) {
+      let pos, x, y;
+      /* Prevent any other actions that may occur when moving over the image */
+      e.preventDefault();
+      /* Get the cursor's x and y positions: */
+      pos = getCursorPos(e);
+      /* Calculate the position of the lens: */
+      x = pos.x - lens.offsetWidth / 2;
+      y = pos.y - lens.offsetHeight / 2;
+      /* Prevent the lens from being positioned outside the image: */
+      if (x > img.width - lens.offsetWidth) {
+        x = img.width - lens.offsetWidth;
+      }
+      if (x < 0) {
+        x = 0;
+      }
+      if (y > img.height - lens.offsetHeight) {
+        y = img.height - lens.offsetHeight;
+      }
+      if (y < 0) {
+        y = 0;
+      }
+      /* Set the position of the lens: */
+      lens.style.left = x + "px";
+      lens.style.top = y + "px";
+      /* Display what the lens "sees": */
+      lens.style.backgroundPosition = `-${x * 2}px -${y * 2}px`;
+    }
 
-        function getCursorPos(e) {
-            let a, x = 0, y = 0;
-            e = e || window.event;
-            /* Get the x and y positions of the image: */
-            a = img.getBoundingClientRect();
-            /* Calculate the cursor's x and y coordinates, relative to the image: */
-            x = e.pageX - a.left;
-            y = e.pageY - a.top;
-            /* Consider any page scrolling: */
-            x = x - window.pageXOffset;
-            y = y - window.pageYOffset;
-            return {x: x, y: y};
-        }
-    });
+    function getCursorPos(e) {
+      let a,
+        x = 0,
+        y = 0;
+      e = e || window.event;
+      /* Get the x and y positions of the image: */
+      a = img.getBoundingClientRect();
+      /* Calculate the cursor's x and y coordinates, relative to the image: */
+      x = e.pageX - a.left;
+      y = e.pageY - a.top;
+      /* Consider any page scrolling: */
+      x = x - window.pageXOffset;
+      y = y - window.pageYOffset;
+      return { x: x, y: y };
+    }
+  });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const zoomContainers = document.querySelectorAll(".zoom-container-2");
+document.addEventListener("DOMContentLoaded", function () {
+  const zoomContainers = document.querySelectorAll(".zoom-container-2");
 
-    zoomContainers.forEach(container => {
-        const img = container.querySelector(".zoom-2");
-        const lens = document.createElement("div");
-        lens.setAttribute("class", "lens-2");
-        container.appendChild(lens);
+  zoomContainers.forEach((container) => {
+    const img = container.querySelector(".zoom-2");
+    const lens = document.createElement("div");
+    lens.setAttribute("class", "lens-2");
+    container.appendChild(lens);
 
-        lens.style.backgroundImage = `url(${img.src})`;
-        lens.style.backgroundSize = `${img.width * 2}px ${img.height * 2}px`;
+    lens.style.backgroundImage = `url(${img.src})`;
+    lens.style.backgroundSize = `${img.width * 2}px ${img.height * 2}px`;
 
-        container.addEventListener("mousemove", moveLens);
-        lens.addEventListener("mousemove", moveLens);
-        container.addEventListener("touchmove", moveLens);
+    container.addEventListener("mousemove", moveLens);
+    lens.addEventListener("mousemove", moveLens);
+    container.addEventListener("touchmove", moveLens);
 
-        function moveLens(e) {
-            let pos, x, y;
-            /* Prevent any other actions that may occur when moving over the image */
-            e.preventDefault();
-            /* Get the cursor's x and y positions: */
-            pos = getCursorPos(e);
-            /* Calculate the position of the lens: */
-            x = pos.x - (lens.offsetWidth / 2);
-            y = pos.y - (lens.offsetHeight / 2);
-            /* Prevent the lens from being positioned outside the image: */
-            if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
-            if (x < 0) {x = 0;}
-            if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
-            if (y < 0) {y = 0;}
-            /* Set the position of the lens: */
-            lens.style.left = x + "px";
-            lens.style.top = y + "px";
-            /* Display what the lens "sees": */
-            lens.style.backgroundPosition = `-${x * 2}px -${y * 2}px`;
-        }
+    function moveLens(e) {
+      let pos, x, y;
+      /* Prevent any other actions that may occur when moving over the image */
+      e.preventDefault();
+      /* Get the cursor's x and y positions: */
+      pos = getCursorPos(e);
+      /* Calculate the position of the lens: */
+      x = pos.x - lens.offsetWidth / 2;
+      y = pos.y - lens.offsetHeight / 2;
+      /* Prevent the lens from being positioned outside the image: */
+      if (x > img.width - lens.offsetWidth) {
+        x = img.width - lens.offsetWidth;
+      }
+      if (x < 0) {
+        x = 0;
+      }
+      if (y > img.height - lens.offsetHeight) {
+        y = img.height - lens.offsetHeight;
+      }
+      if (y < 0) {
+        y = 0;
+      }
+      /* Set the position of the lens: */
+      lens.style.left = x + "px";
+      lens.style.top = y + "px";
+      /* Display what the lens "sees": */
+      lens.style.backgroundPosition = `-${x * 2}px -${y * 2}px`;
+    }
 
-        function getCursorPos(e) {
-            let a, x = 0, y = 0;
-            e = e || window.event;
-            /* Get the x and y positions of the image: */
-            a = img.getBoundingClientRect();
-            /* Calculate the cursor's x and y coordinates, relative to the image: */
-            x = e.pageX - a.left;
-            y = e.pageY - a.top;
-            /* Consider any page scrolling: */
-            x = x - window.pageXOffset;
-            y = y - window.pageYOffset;
-            return {x: x, y: y};
-        }
-    });
+    function getCursorPos(e) {
+      let a,
+        x = 0,
+        y = 0;
+      e = e || window.event;
+      /* Get the x and y positions of the image: */
+      a = img.getBoundingClientRect();
+      /* Calculate the cursor's x and y coordinates, relative to the image: */
+      x = e.pageX - a.left;
+      y = e.pageY - a.top;
+      /* Consider any page scrolling: */
+      x = x - window.pageXOffset;
+      y = y - window.pageYOffset;
+      return { x: x, y: y };
+    }
+  });
 });
 
 document.addEventListener('contextmenu', function(event) {
@@ -257,402 +273,683 @@ document.addEventListener('contextmenu', function(event) {
 
 // SLIDER 1
 
-const slider = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slider img');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
-const dotContainer = document.querySelector('.slider-dots');
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.querySelector(".slider");
+  const images = document.querySelectorAll(".slider img");
+  const dotsContainer = document.querySelector(".slider-dots");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
 
-let currentIndex = 0;
-const slideWidth = slides[0].clientWidth; // Lebar satu slide
+  let currentIndex = 0;
+  const totalImages = images.length;
 
-// Membuat dots untuk setiap slide
-slides.forEach((slide, index) => {
-    const dot = document.createElement('span');
-    dot.classList.add('dot');
-    if (index === 0) {
-        dot.classList.add('active');
+  function createDots() {
+    for (let i = 0; i < totalImages; i++) {
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+      if (i === 0) dot.classList.add("active");
+      dot.addEventListener("click", () => {
+        goToSlide(i);
+      });
+      dotsContainer.appendChild(dot);
     }
-    dot.addEventListener('click', () => {
-        currentIndex = index;
-        updateSlider();
-        updateDots();
+  }
+
+  function updateDots() {
+    const dots = document.querySelectorAll(".dot");
+    dots.forEach((dot, index) => {
+      if (index === currentIndex) {
+        dot.classList.add("active");
+      } else {
+        dot.classList.remove("active");
+      }
     });
-    dotContainer.appendChild(dot);
+  }
+
+  function goToSlide(index) {
+    currentIndex = index;
+    const slideWidth = slider.clientWidth;
+    slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+    updateDots();
+  }
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : totalImages - 1;
+    goToSlide(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < totalImages - 1 ? currentIndex + 1 : 0;
+    goToSlide(currentIndex);
+  });
+
+  window.addEventListener("resize", () => {
+    goToSlide(currentIndex);
+  });
+
+  createDots();
 });
-
-// Fungsi untuk menampilkan slide berikutnya
-function showNextSlide() {
-    currentIndex++;
-    if (currentIndex >= slides.length) {
-        currentIndex = 0;
-    }
-    updateSlider();
-    updateDots();
-}
-
-// Fungsi untuk menampilkan slide sebelumnya
-function showPrevSlide() {
-    currentIndex--;
-    if (currentIndex < 0) {
-        currentIndex = slides.length - 1;
-    }
-    updateSlider();
-    updateDots();
-}
-
-// Fungsi untuk memperbarui tampilan slider
-function updateSlider() {
-    const offset = -1 * currentIndex * slideWidth;
-    slider.style.transform = `translateX(${offset}px)`;
-}
-
-// Fungsi untuk memperbarui dots
-function updateDots() {
-    document.querySelectorAll('.dot').forEach((dot, index) => {
-        if (index === currentIndex) {
-            dot.classList.add('active');
-        } else {
-            dot.classList.remove('active');
-        }
-    });
-}
-
-// Event listener untuk tombol prev dan next
-prevBtn.addEventListener('click', showPrevSlide);
-nextBtn.addEventListener('click', showNextSlide);
 
 // SLIDER 2
 
-const slider2 = document.querySelector('.slider-2');
-const slides2 = document.querySelectorAll('.slider-2 img');
-const prevBtn2 = document.querySelector('.slider-container-2 .prev-btn');
-const nextBtn2 = document.querySelector('.slider-container-2 .next-btn');
-const dotContainer2 = document.querySelector('.slider-dots-2');
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider-2");
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = document.querySelector(".slider-dots-2");
+  const prevBtn = document.querySelector(".slider-container-2 .prev-btn");
+  const nextBtn = document.querySelector(".slider-container-2 .next-btn");
+  let currentIndex = 0;
 
-let currentIndex2 = 0;
-const slideWidth2 = slides2[0].clientWidth; // Lebar satu slide
+  // Create dots based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
 
-// Membuat dots untuk setiap slide
-slides2.forEach((slide, index) => {
-    const dot = document.createElement('span');
-    dot.classList.add('dot-2');
-    if (index === 0) {
-        dot.classList.add('active');
-    }
-    dot.addEventListener('click', () => {
-        currentIndex2 = index;
-        updateSlider2();
-        updateDots2();
+  // Function to update the slider position and dots
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll(".dot").forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
     });
-    dotContainer2.appendChild(dot);
+  }
+
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    updateSlider(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    updateSlider(currentIndex);
+  });
+
+  // Event listeners for dots
+  dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
+    });
+  });
 });
-
-// Fungsi untuk menampilkan slide berikutnya
-function showNextSlide2() {
-    currentIndex2++;
-    if (currentIndex2 >= slides2.length) {
-        currentIndex2 = 0;
-    }
-    updateSlider2();
-    updateDots2();
-}
-
-// Fungsi untuk menampilkan slide sebelumnya
-function showPrevSlide2() {
-    currentIndex2--;
-    if (currentIndex2 < 0) {
-        currentIndex2 = slides2.length - 1;
-    }
-    updateSlider2();
-    updateDots2();
-}
-
-// Fungsi untuk memperbarui tampilan slider
-function updateSlider2() {
-    const offset2 = -1 * currentIndex2 * slideWidth2;
-    slider2.style.transform = `translateX(${offset2}px)`;
-}
-
-// Fungsi untuk memperbarui dots
-function updateDots2() {
-    document.querySelectorAll('.dot-2').forEach((dot, index) => {
-        if (index === currentIndex2) {
-            dot.classList.add('active');
-        } else {
-            dot.classList.remove('active');
-        }
-    });
-}
-
-// Event listener untuk tombol prev dan next
-prevBtn2.addEventListener('click', showPrevSlide2);
-nextBtn2.addEventListener('click', showNextSlide2);
 
 // SLIDER-3
 
-const slider3 = document.querySelector('.slider-3');
-const slides3 = document.querySelectorAll('.slider-3 img');
-const prevBtn3 = document.querySelector('.slider-container-3 .prev-btn');
-const nextBtn3 = document.querySelector('.slider-container-3 .next-btn');
-const dotContainer3 = document.querySelector('.slider-dots-3');
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider-3");
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = document.querySelector(".slider-dots-3");
+  const prevBtn = document.querySelector(".slider-container-3 .prev-btn");
+  const nextBtn = document.querySelector(".slider-container-3 .next-btn");
+  let currentIndex = 0;
 
-let currentIndex3 = 0;
-const slideWidth3 = slides3[0].clientWidth; // Lebar satu slide
+  // Create dots based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
 
-// Membuat dots untuk setiap slide
-slides3.forEach((slide, index) => {
-    const dot = document.createElement('span');
-    dot.classList.add('dot-3');
-    if (index === 0) {
-        dot.classList.add('active');
-    }
-    dot.addEventListener('click', () => {
-        currentIndex3 = index;
-        updateSlider3();
-        updateDots3();
+  // Function to update the slider position and dots
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll(".dot").forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
     });
-    dotContainer3.appendChild(dot);
+  }
+
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    updateSlider(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    updateSlider(currentIndex);
+  });
+
+  // Event listeners for dots
+  dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
+    });
+  });
 });
-
-// Fungsi untuk menampilkan slide berikutnya
-function showNextSlide3() {
-    currentIndex3++;
-    if (currentIndex3 >= slides3.length) {
-        currentIndex3 = 0;
-    }
-    updateSlider3();
-    updateDots3();
-}
-
-// Fungsi untuk menampilkan slide sebelumnya
-function showPrevSlide3() {
-    currentIndex3--;
-    if (currentIndex3 < 0) {
-        currentIndex3 = slides3.length - 1;
-    }
-    updateSlider3();
-    updateDots3();
-}
-
-// Fungsi untuk memperbarui tampilan slider
-function updateSlider3() {
-    const offset3 = -1 * currentIndex3 * slideWidth3;
-    slider3.style.transform = `translateX(${offset3}px)`;
-}
-
-// Fungsi untuk memperbarui dots
-function updateDots3() {
-    document.querySelectorAll('.dot-3').forEach((dot, index) => {
-        if (index === currentIndex3) {
-            dot.classList.add('active');
-        } else {
-            dot.classList.remove('active');
-        }
-    });
-}
-
-// Event listener untuk tombol prev dan next
-prevBtn3.addEventListener('click', showPrevSlide3);
-nextBtn3.addEventListener('click', showNextSlide3);
 
 // SLIDER-4
 
-const slider4 = document.querySelector('.slider-4');
-const slides4 = document.querySelectorAll('.slider-4 img');
-const prevBtn4 = document.querySelector('.slider-container-4 .prev-btn');
-const nextBtn4 = document.querySelector('.slider-container-4 .next-btn');
-const dotContainer4 = document.querySelector('.slider-dots-4');
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider-4");
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = document.querySelector(".slider-dots-4");
+  const prevBtn = document.querySelector(".slider-container-4 .prev-btn");
+  const nextBtn = document.querySelector(".slider-container-4 .next-btn");
+  let currentIndex = 0;
 
-let currentIndex4 = 0;
-const slideWidth4 = slides4[0].clientWidth; // Lebar satu slide
+  // Create dots based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
 
-// Membuat dots untuk setiap slide
-slides4.forEach((slide, index) => {
-    const dot = document.createElement('span');
-    dot.classList.add('dot-4');
-    if (index === 0) {
-        dot.classList.add('active');
-    }
-    dot.addEventListener('click', () => {
-        currentIndex4 = index;
-        updateSlider4();
-        updateDots4();
+  // Function to update the slider position and dots
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll(".dot").forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
     });
-    dotContainer4.appendChild(dot);
+  }
+
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    updateSlider(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    updateSlider(currentIndex);
+  });
+
+  // Event listeners for dots
+  dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
+    });
+  });
 });
-
-// Fungsi untuk menampilkan slide berikutnya
-function showNextSlide4() {
-    currentIndex4++;
-    if (currentIndex4 >= slides4.length) {
-        currentIndex4 = 0;
-    }
-    updateSlider4();
-    updateDots4();
-}
-
-// Fungsi untuk menampilkan slide sebelumnya
-function showPrevSlide4() {
-    currentIndex4--;
-    if (currentIndex4 < 0) {
-        currentIndex4 = slides4.length - 1;
-    }
-    updateSlider4();
-    updateDots4();
-}
-
-// Fungsi untuk memperbarui tampilan slider
-function updateSlider4() {
-    const offset4 = -1 * currentIndex4 * slideWidth4;
-    slider4.style.transform = `translateX(${offset4}px)`;
-}
-
-// Fungsi untuk memperbarui dots
-function updateDots4() {
-    document.querySelectorAll('.dot-4').forEach((dot, index) => {
-        if (index === currentIndex4) {
-            dot.classList.add('active');
-        } else {
-            dot.classList.remove('active');
-        }
-    });
-}
-
-// Event listener untuk tombol prev dan next
-prevBtn4.addEventListener('click', showPrevSlide4);
-nextBtn4.addEventListener('click', showNextSlide4);
 
 // SLIDER-5
 
-const slider5 = document.querySelector('.slider-5');
-const slides5 = document.querySelectorAll('.slider-5 img');
-const prevBtn5 = document.querySelector('.slider-container-5 .prev-btn');
-const nextBtn5 = document.querySelector('.slider-container-5 .next-btn');
-const dotContainer5 = document.querySelector('.slider-dots-5');
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider-5");
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = document.querySelector(".slider-dots-5");
+  const prevBtn = document.querySelector(".slider-container-5 .prev-btn");
+  const nextBtn = document.querySelector(".slider-container-5 .next-btn");
+  let currentIndex = 0;
 
-let currentIndex5 = 0;
-const slideWidth5 = slides5[0].clientWidth; // Lebar satu slide
+  // Create dots based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
 
-// Membuat dots untuk setiap slide
-slides5.forEach((slide, index) => {
-    const dot = document.createElement('span');
-    dot.classList.add('dot-5');
-    if (index === 0) {
-        dot.classList.add('active');
-    }
-    dot.addEventListener('click', () => {
-        currentIndex5 = index;
-        updateSlider5();
-        updateDots5();
+  // Function to update the slider position and dots
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll(".dot").forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
     });
-    dotContainer5.appendChild(dot);
+  }
+
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    updateSlider(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    updateSlider(currentIndex);
+  });
+
+  // Event listeners for dots
+  dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
+    });
+  });
 });
-
-// Fungsi untuk menampilkan slide berikutnya
-function showNextSlide5() {
-    currentIndex5++;
-    if (currentIndex5 >= slides5.length) {
-        currentIndex5 = 0;
-    }
-    updateSlider5();
-    updateDots5();
-}
-
-// Fungsi untuk menampilkan slide sebelumnya
-function showPrevSlide5() {
-    currentIndex5--;
-    if (currentIndex5 < 0) {
-        currentIndex5 = slides5.length - 1;
-    }
-    updateSlider5();
-    updateDots5();
-}
-
-// Fungsi untuk memperbarui tampilan slider
-function updateSlider5() {
-    const offset5 = -1 * currentIndex5 * slideWidth5;
-    slider5.style.transform = `translateX(${offset5}px)`;
-}
-
-// Fungsi untuk memperbarui dots
-function updateDots5() {
-    document.querySelectorAll('.dot-5').forEach((dot, index) => {
-        if (index === currentIndex5) {
-            dot.classList.add('active');
-        } else {
-            dot.classList.remove('active');
-        }
-    });
-}
-
-// Event listener untuk tombol prev dan next
-prevBtn5.addEventListener('click', showPrevSlide5);
-nextBtn5.addEventListener('click', showNextSlide5);
 
 // SLIDER-6
 
-const slider6 = document.querySelector('.slider-6');
-const slides6 = document.querySelectorAll('.slider-6 img');
-const prevBtn6 = document.querySelector('.slider-container-6 .prev-btn');
-const nextBtn6 = document.querySelector('.slider-container-6 .next-btn');
-const dotContainer6 = document.querySelector('.slider-dots-6');
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider-6");
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = document.querySelector(".slider-dots-6");
+  const prevBtn = document.querySelector(".slider-container-6 .prev-btn");
+  const nextBtn = document.querySelector(".slider-container-6 .next-btn");
+  let currentIndex = 0;
 
-let currentIndex6 = 0;
-const slideWidth6 = slides6[0].clientWidth; // Lebar satu slide
+  // Create dots based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
 
-// Membuat dots untuk setiap slide
-slides6.forEach((slide, index) => {
-    const dot = document.createElement('span');
-    dot.classList.add('dot-6');
-    if (index === 0) {
-        dot.classList.add('active');
-    }
-    dot.addEventListener('click', () => {
-        currentIndex6 = index;
-        updateSlider6();
-        updateDots6();
+  // Function to update the slider position and dots
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll(".dot").forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
     });
-    dotContainer6.appendChild(dot);
+  }
+
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    updateSlider(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    updateSlider(currentIndex);
+  });
+
+  // Event listeners for dots
+  dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
+    });
+  });
 });
 
-// Fungsi untuk menampilkan slide berikutnya
-function showNextSlide6() {
-    currentIndex6++;
-    if (currentIndex6 >= slides6.length) {
-        currentIndex6 = 0;
-    }
-    updateSlider6();
-    updateDots6();
-}
+// SLIDER-7
 
-// Fungsi untuk menampilkan slide sebelumnya
-function showPrevSlide6() {
-    currentIndex6--;
-    if (currentIndex6 < 0) {
-        currentIndex6 = slides6.length - 1;
-    }
-    updateSlider6();
-    updateDots6();
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider-7");
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = document.querySelector(".slider-dots-7");
+  const prevBtn = document.querySelector(".slider-container-7 .prev-btn");
+  const nextBtn = document.querySelector(".slider-container-7 .next-btn");
+  let currentIndex = 0;
 
-// Fungsi untuk memperbarui tampilan slider
-function updateSlider6() {
-    const offset6 = -1 * currentIndex6 * slideWidth6;
-    slider6.style.transform = `translateX(${offset6}px)`;
-}
+  // Create dots based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
 
-// Fungsi untuk memperbarui dots
-function updateDots6() {
-    document.querySelectorAll('.dot-6').forEach((dot, index) => {
-        if (index === currentIndex6) {
-            dot.classList.add('active');
-        } else {
-            dot.classList.remove('active');
-        }
+  // Function to update the slider position and dots
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll(".dot").forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
     });
-}
+  }
 
-// Event listener untuk tombol prev dan next
-prevBtn6.addEventListener('click', showPrevSlide6);
-nextBtn6.addEventListener('click', showNextSlide6);
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    updateSlider(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    updateSlider(currentIndex);
+  });
+
+  // Event listeners for dots
+  dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
+    });
+  });
+});
+
+// SLIDER-8
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider-8");
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = document.querySelector(".slider-dots-8");
+  const prevBtn = document.querySelector(".slider-container-8 .prev-btn");
+  const nextBtn = document.querySelector(".slider-container-8 .next-btn");
+  let currentIndex = 0;
+
+  // Create dots based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
+
+  // Function to update the slider position and dots
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll(".dot").forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
+    });
+  }
+
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    updateSlider(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    updateSlider(currentIndex);
+  });
+
+  // Event listeners for dots
+  dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
+    });
+  });
+});
+
+// SLIDER-9
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider-9");
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = document.querySelector(".slider-dots-9");
+  const prevBtn = document.querySelector(".slider-container-9 .prev-btn");
+  const nextBtn = document.querySelector(".slider-container-9 .next-btn");
+  let currentIndex = 0;
+
+  // Create dots based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
+
+  // Function to update the slider position and dots
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll(".dot").forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
+    });
+  }
+
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    updateSlider(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    updateSlider(currentIndex);
+  });
+
+  // Event listeners for dots
+  dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
+    });
+  });
+});
+
+// SLIDER-10
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider-10");
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = document.querySelector(".slider-dots-10");
+  const prevBtn = document.querySelector(".slider-container-10 .prev-btn");
+  const nextBtn = document.querySelector(".slider-container-10 .next-btn");
+  let currentIndex = 0;
+
+  // Create dots based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
+
+  // Function to update the slider position and dots
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll(".dot").forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
+    });
+  }
+
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    updateSlider(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    updateSlider(currentIndex);
+  });
+
+  // Event listeners for dots
+  dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
+    });
+  });
+});
+
+// SLIDER-11
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider-11");
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = document.querySelector(".slider-dots-11");
+  const prevBtn = document.querySelector(".slider-container-11 .prev-btn");
+  const nextBtn = document.querySelector(".slider-container-11 .next-btn");
+  let currentIndex = 0;
+
+  // Create dots based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
+
+  // Function to update the slider position and dots
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll(".dot").forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
+    });
+  }
+
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    updateSlider(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    updateSlider(currentIndex);
+  });
+
+  // Event listeners for dots
+  dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
+    });
+  });
+});
+
+// SLIDER-12
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider-12");
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = document.querySelector(".slider-dots-12");
+  const prevBtn = document.querySelector(".slider-container-12 .prev-btn");
+  const nextBtn = document.querySelector(".slider-container-12 .next-btn");
+  let currentIndex = 0;
+
+  // Create dots based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
+
+  // Function to update the slider position and dots
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll(".dot").forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
+    });
+  }
+
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    updateSlider(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    updateSlider(currentIndex);
+  });
+
+  // Event listeners for dots
+  dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
+    });
+  });
+});
+
+// SLIDER-13
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider-13");
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = document.querySelector(".slider-dots-13");
+  const prevBtn = document.querySelector(".slider-container-13 .prev-btn");
+  const nextBtn = document.querySelector(".slider-container-13 .next-btn");
+  let currentIndex = 0;
+
+  // Create dots based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
+
+  // Function to update the slider position and dots
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll(".dot").forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
+    });
+  }
+
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    updateSlider(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    updateSlider(currentIndex);
+  });
+
+  // Event listeners for dots
+  dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
+    });
+  });
+});
+
+// MODAL GALERI
+
+// Dapatkan elemen modal
+var modal = document.getElementById("myModal");
+
+// Dapatkan elemen gambar dalam modal
+var modalImg = document.getElementById("modal-img");
+
+// Dapatkan elemen close
+var span = document.getElementsByClassName("close")[0];
+
+// Tambahkan event listener ke setiap gambar
+var images = document.querySelectorAll(".image-container-1 img");
+images.forEach(function (image) {
+  image.addEventListener("click", function () {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+  });
+});
+
+// Ketika pengguna mengklik tombol close, tutup modal
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+// Ketika pengguna mengklik di luar modal, tutup modal
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+// Ketika pengguna mengklik tombol close, tutup modal
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+// Ketika pengguna mengklik di luar modal, tutup modal
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+// SLIDER-14
+
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('myModal-1');
+    const modalImg = document.getElementById('modal-img-1');
+    const sliderImages = document.querySelector('.slider-images-14');
+    const images = sliderImages.querySelectorAll('img');
+    const closeButton = modal.querySelector('.close');
+  
+    images.forEach(img => {
+      img.addEventListener('click', function() {
+        modalImg.src = this.src;
+        modal.style.display = 'block';
+      });
+    });
+  
+    closeButton.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+  
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
+  
