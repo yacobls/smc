@@ -249,27 +249,28 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.addEventListener('contextmenu', function(event) {
-	event.preventDefault();
-  });
+document.addEventListener("contextmenu", function (event) {
+  event.preventDefault();
+});
 
-  document.onkeydown = function(e) {
-	if(e.keyCode == 123) { // F12 key
-	  return false;
-	}
-	if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-	  return false;
-	}
-	if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-	  return false;
-	}
-	if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-	  return false;
-	}
-	if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-	  return false;
-	}
+document.onkeydown = function (e) {
+  if (e.keyCode == 123) {
+    // F12 key
+    return false;
   }
+  if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
+    return false;
+  }
+  if (e.ctrlKey && e.shiftKey && e.keyCode == "C".charCodeAt(0)) {
+    return false;
+  }
+  if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
+    return false;
+  }
+  if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) {
+    return false;
+  }
+};
 
 // SLIDER 1
 
@@ -928,28 +929,36 @@ window.onclick = function (event) {
 
 // SLIDER-14
 
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('myModal-1');
-    const modalImg = document.getElementById('modal-img-1');
-    const sliderImages = document.querySelector('.slider-images-14');
-    const images = sliderImages.querySelectorAll('img');
-    const closeButton = modal.querySelector('.close');
-  
-    images.forEach(img => {
-      img.addEventListener('click', function() {
-        modalImg.src = this.src;
-        modal.style.display = 'block';
-      });
-    });
-  
-    closeButton.addEventListener('click', function() {
-      modal.style.display = 'none';
-    });
-  
-    window.addEventListener('click', function(event) {
-      if (event.target === modal) {
-        modal.style.display = 'none';
-      }
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("myModal-1");
+  const modalImg = document.getElementById("modal-img-1");
+  const sliderImages = document.querySelector(".slider-images-14");
+  const images = sliderImages.querySelectorAll("img");
+  const closeButton = modal.querySelector(".close");
+
+  images.forEach((img) => {
+    img.addEventListener("click", function () {
+      modalImg.src = this.src;
+      modal.style.display = "block";
     });
   });
-  
+
+  closeButton.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+
+// JavaScript untuk interaksi tombol (jika diperlukan)
+document.addEventListener("DOMContentLoaded", function () {
+  var button = document.getElementById("whatsapp-button");
+  button.addEventListener("click", function () {
+    // Tambahkan logika khusus jika diperlukan
+    console.log("Tombol WhatsApp diklik");
+  });
+});

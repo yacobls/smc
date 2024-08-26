@@ -72,7 +72,7 @@ h6,
 .back-to-top {
   position: fixed;
   display: none;
-  right: 30px;
+  left: 30px;
   bottom: 30px;
   z-index: 99;
   transition: 0.3s;
@@ -204,6 +204,42 @@ h6,
   }
 }
 
+.page-header-bulanan {
+  height: 400px;
+  margin-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(28, 30, 50, 0.9), rgba(28, 30, 50, 0.9)),
+    url(https://res.cloudinary.com/ddckh3nlb/image/upload/v1719396991/bg-banner-2_w4jl0h.png);
+  background-attachment: fixed;
+}
+
+@media (max-width: 991.98px) {
+  .page-header-bulanan {
+    height: 300px;
+  }
+}
+
+.page-header-tahunan {
+  height: 400px;
+  margin-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(28, 30, 50, 0.9), rgba(28, 30, 50, 0.9)),
+    url(https://res.cloudinary.com/ddckh3nlb/image/upload/v1719396987/bg-banner_aoyfal.png);
+  background-attachment: fixed;
+}
+
+@media (max-width: 991.98px) {
+  .page-header-tahunan {
+    height: 300px;
+  }
+}
+
 .page-header-mobil-dan-driver {
   height: 400px;
   margin-bottom: 90px;
@@ -218,6 +254,24 @@ h6,
 
 @media (max-width: 991.98px) {
   .page-header-mobil-dan-driver {
+    height: 300px;
+  }
+}
+
+.page-header-wedding-2 {
+  height: 400px;
+  margin-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(28, 30, 50, 0.9), rgba(28, 30, 50, 0.9)),
+    url(https://res.cloudinary.com/ddckh3nlb/image/upload/v1724700919/Wedding-2_gcusun.png);
+  background-attachment: fixed;
+}
+
+@media (max-width: 991.98px) {
+  .page-header-wedding-2 {
     height: 300px;
   }
 }
@@ -1401,4 +1455,19 @@ h6,
   .modal-content {
     width: 90%;
   }
+}
+
+/* CSS untuk tombol WhatsApp */
+#whatsapp-button {
+  position: fixed;
+  bottom: 20px; /* Jarak dari bawah */
+  right: 20px; /* Jarak dari kanan */
+  z-index: 1000; /* Pastikan tombol berada di atas elemen lain */
+}
+
+#whatsapp-button img {
+  width: 60px; /* Ukuran tombol */
+  height: 60px;
+  border-radius: 50%; /* Membuat tombol berbentuk bulat */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Menambahkan efek bayangan */
 }
