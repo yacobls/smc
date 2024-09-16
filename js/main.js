@@ -249,28 +249,27 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.addEventListener("contextmenu", function (event) {
-  event.preventDefault();
-});
+document.addEventListener('contextmenu', function(event) {
+	event.preventDefault();
+  });
 
-document.onkeydown = function (e) {
-  if (e.keyCode == 123) {
-    // F12 key
-    return false;
+  document.onkeydown = function(e) {
+	if(e.keyCode == 123) { // F12 key
+	  return false;
+	}
+	if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+	  return false;
+	}
+	if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+	  return false;
+	}
+	if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+	  return false;
+	}
+	if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+	  return false;
+	}
   }
-  if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
-    return false;
-  }
-  if (e.ctrlKey && e.shiftKey && e.keyCode == "C".charCodeAt(0)) {
-    return false;
-  }
-  if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
-    return false;
-  }
-  if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) {
-    return false;
-  }
-};
 
 // SLIDER 1
 
@@ -883,6 +882,52 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// SLIDER-17
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider-17");
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = document.querySelector(".slider-dots-17");
+  const prevBtn = document.querySelector(".slider-container-17 .prev-btn");
+  const nextBtn = document.querySelector(".slider-container-17 .next-btn");
+  let currentIndex = 0;
+
+  // Create dots based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
+
+  // Function to update the slider position and dots
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll(".dot").forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
+    });
+  }
+
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    updateSlider(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    updateSlider(currentIndex);
+  });
+
+  // Event listeners for dots
+  dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
+    });
+  });
+});
+
 // MODAL GALERI
 
 // Dapatkan elemen modal
@@ -929,36 +974,36 @@ window.onclick = function (event) {
 
 // SLIDER-14
 
-document.addEventListener("DOMContentLoaded", function () {
-  const modal = document.getElementById("myModal-1");
-  const modalImg = document.getElementById("modal-img-1");
-  const sliderImages = document.querySelector(".slider-images-14");
-  const images = sliderImages.querySelectorAll("img");
-  const closeButton = modal.querySelector(".close");
-
-  images.forEach((img) => {
-    img.addEventListener("click", function () {
-      modalImg.src = this.src;
-      modal.style.display = "block";
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('myModal-1');
+    const modalImg = document.getElementById('modal-img-1');
+    const sliderImages = document.querySelector('.slider-images-14');
+    const images = sliderImages.querySelectorAll('img');
+    const closeButton = modal.querySelector('.close');
+  
+    images.forEach(img => {
+      img.addEventListener('click', function() {
+        modalImg.src = this.src;
+        modal.style.display = 'block';
+      });
+    });
+  
+    closeButton.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+  
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
     });
   });
-
-  closeButton.addEventListener("click", function () {
-    modal.style.display = "none";
-  });
-
-  window.addEventListener("click", function (event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  });
-});
-
-// JavaScript untuk interaksi tombol (jika diperlukan)
-document.addEventListener("DOMContentLoaded", function () {
-  var button = document.getElementById("whatsapp-button");
-  button.addEventListener("click", function () {
-    // Tambahkan logika khusus jika diperlukan
-    console.log("Tombol WhatsApp diklik");
-  });
-});
+  
+      // JavaScript untuk interaksi tombol (jika diperlukan)
+    document.addEventListener('DOMContentLoaded', function() {
+      var button = document.getElementById('whatsapp-button');
+      button.addEventListener('click', function() {
+        // Tambahkan logika khusus jika diperlukan
+        console.log('Tombol WhatsApp diklik');
+      });
+    });
