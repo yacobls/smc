@@ -1500,7 +1500,7 @@ h6,
 #whatsapp-button {
   position: fixed;
   bottom: 20px; /* Jarak dari bawah */
-  right: 20px;  /* Jarak dari kanan */
+  right: 20px; /* Jarak dari kanan */
   z-index: 1000; /* Pastikan tombol berada di atas elemen lain */
 }
 
