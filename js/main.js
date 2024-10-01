@@ -929,6 +929,98 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// SLIDER-18
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider-18");
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = document.querySelector(".slider-dots-18");
+  const prevBtn = document.querySelector(".slider-container-18 .prev-btn");
+  const nextBtn = document.querySelector(".slider-container-18 .next-btn");
+  let currentIndex = 0;
+
+  // Create dots based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
+
+  // Function to update the slider position and dots
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll(".dot").forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
+    });
+  }
+
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    updateSlider(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    updateSlider(currentIndex);
+  });
+
+  // Event listeners for dots
+  dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
+    });
+  });
+});
+
+// SLIDER-19
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".slider-19");
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = document.querySelector(".slider-dots-19");
+  const prevBtn = document.querySelector(".slider-container-19 .prev-btn");
+  const nextBtn = document.querySelector(".slider-container-19 .next-btn");
+  let currentIndex = 0;
+
+  // Create dots based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
+
+  // Function to update the slider position and dots
+  function updateSlider(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotsContainer.querySelectorAll(".dot").forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
+    });
+  }
+
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener("click", () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    updateSlider(currentIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+    updateSlider(currentIndex);
+  });
+
+  // Event listeners for dots
+  dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
+    });
+  });
+});
+
 // MODAL GALERI
 
 // Dapatkan elemen modal
